@@ -35,12 +35,12 @@ while(True):
     while True:
         notify()
         Popen(work_message, shell=True)
-        sleep(work_minutes)
+        sleep(work_minutes*60)
         pomo_count+=1
         if pomo_count % pomo_count_per_cycle != 0:
             notify()
             Popen(rest_message + f"\nPomodoro Count = {pomo_count}\"", shell=True)
-            sleep(rest_minutes)
+            sleep(rest_minutes*60)
         else:
             notify()
             Popen(long_rest_message + f"\nPomodoro Count = {pomo_count}\"", shell=True)
