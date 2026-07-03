@@ -1,6 +1,9 @@
+#!/bin/python3
+
 from subprocess import Popen
 from time import sleep
 from sys import argv
+from os import path
 
 
 pomo_count = 0
@@ -10,8 +13,10 @@ long_rest_minutes = 30
 pomo_count_per_cycle = 4
 notif_sound = "notif.mp3"
 
+script_dir = path.dirname(path.realpath(__file__))
+
 def notify():
-    Popen(f"mpv {notif_sound} >> /dev/null", shell=True)
+    Popen(f"mpv {script_dir}/{notif_sound} >> /dev/null", shell=True)
 
 if len(argv) >= 2 and len(argv) == 5:
     work_minutes = int(argv[1])
