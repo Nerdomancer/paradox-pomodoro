@@ -18,7 +18,10 @@ script_dir = path.dirname(path.realpath(__file__))
 def notify():
     Popen(f"mpv {script_dir}/{notif_sound} >> /dev/null", shell=True)
 
-if len(argv) >= 2 and len(argv) == 5:
+if "0" in argv:
+    print("Error: Cannot set any value to zero.")
+    exit()
+elif len(argv) >= 2 and len(argv) == 5:
     work_minutes = int(argv[1])
     rest_minutes = int(argv[2])
     long_rest_minuts = int(argv[3])
